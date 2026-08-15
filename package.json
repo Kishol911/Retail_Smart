@@ -1,0 +1,21 @@
+{
+  "name": "smartpos-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Root scripts to run SmartPOS client + server together",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "server": "npm run dev --workspace=server",
+    "client": "npm run dev --workspace=client",
+    "dev": "concurrently -n SERVER,CLIENT -c blue,green \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "firebase": "^12.16.0"
+  }
+}
